@@ -1,0 +1,62 @@
+:root {
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", sans-serif;
+  --spring: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --background: #282828;
+  --dot: #696969;
+  --surface: #1d1d1f;
+  --label: #f5f5f7;
+  --secondary-label: #a1a1a6;
+  --tertiary-label: #86868b;
+  --separator: rgba(255, 255, 255, 0.12);
+  --fill: rgba(255, 255, 255, 0.08);
+  --fill-selected: rgba(255, 255, 255, 0.2);
+  --fill-pressed: rgba(255, 255, 255, 0.1);
+  --accent: #0a84ff;
+  --on-accent: #ffffff;
+  --on-accent-secondary: rgba(255, 255, 255, 0.82);
+
+  --grid: 25px;
+  --bar-height: 56px;
+  --control-radius: 8px;
+  --icon-size: 44px;
+  --row-padding: 10px;
+  --list-inset: 10px;
+}
+
+.panel {
+  --icon-radius: calc(var(--icon-size) * 0.225);
+  --result-radius: calc(var(--icon-radius) + var(--row-padding));
+  --panel-radius: calc(var(--result-radius) + var(--list-inset));
+  --content-inset: calc(var(--list-inset) + var(--row-padding));
+}
+
+@media (max-width: 600px) {
+  :root {
+    --icon-size: 60px;
+    --list-inset: 8px;
+    --columns: 4;
+  }
+
+  .panel {
+    --row-padding: calc(((100cqi - 2 * var(--list-inset)) / var(--columns) - var(--icon-size)) / 2);
+  }
+}
+
+@media (max-width: 374px) {
+  :root {
+    --columns: 3;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 559px) {
+  :root {
+    --columns: 5;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 600px) {
+  :root {
+    --columns: 6;
+  }
+}

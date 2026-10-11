@@ -1,0 +1,6 @@
+body::before,
+.stage,
+.dock,
+.copyright {
+  opacity: 1 !important;
+}

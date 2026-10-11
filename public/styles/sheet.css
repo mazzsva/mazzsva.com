@@ -1,0 +1,124 @@
+.sheet {
+  --inset: 22px;
+  --button-radius: 14px;
+
+  inset: auto 0 0;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  padding: 8px 8px max(8px, env(safe-area-inset-bottom));
+  overflow: visible;
+  border: 0;
+  background: none;
+  color: inherit;
+}
+
+.sheet::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+  transition: background 0.4s ease;
+}
+
+.sheet.is-closing::backdrop {
+  background: transparent;
+}
+
+.sheet-body {
+  --elevation: 0 -8px 40px rgba(0, 0, 0, 0.4);
+
+  padding: var(--inset);
+  border-radius: calc(var(--button-radius) + var(--inset));
+  outline: none;
+  touch-action: none;
+  transform: translateY(calc(100% + 16px));
+  transition: transform 0.4s var(--spring);
+}
+
+.sheet[open] .sheet-body {
+  transform: none;
+}
+
+.sheet.is-closing .sheet-body {
+  transform: translateY(calc(100% + 16px));
+}
+
+@starting-style {
+  .sheet::backdrop {
+    background: transparent;
+  }
+
+  .sheet[open] .sheet-body {
+    transform: translateY(calc(100% + 16px));
+  }
+}
+
+.sheet-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.sheet-icon {
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.2));
+}
+
+.sheet-title {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.sheet-detail {
+  margin: 6px 0 22px;
+  color: var(--secondary-label);
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.sheet-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  border-radius: var(--button-radius);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sheet-open:not([href]) {
+  background: var(--fill);
+  color: var(--tertiary-label);
+}
+
+.sheet-arrow {
+  width: 13px;
+  height: 13px;
+  background: currentColor;
+  mask: url("../assets/symbols/arrow.up.right.png") center / contain no-repeat;
+}
+
+.sheet-open:not([href]) .sheet-arrow,
+.sheet-link:empty {
+  display: none;
+}
+
+.sheet-link {
+  margin-top: 12px;
+  color: var(--tertiary-label);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet::backdrop,
+  .sheet-body {
+    transition: none;
+  }
+}

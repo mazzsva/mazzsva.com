@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  overscroll-behavior: none;
+}
+
+body {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr auto;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 16px;
+  background: var(--background);
+  color: var(--label);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  --fade: 24vmin;
+  --ease-in: rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.37) calc(var(--fade) * 0.25), rgba(0, 0, 0, 0.63) calc(var(--fade) * 0.5),
+    rgba(0, 0, 0, 0.88) calc(var(--fade) * 0.75), #000 var(--fade);
+  --ease-out: #000 calc(100% - var(--fade)), rgba(0, 0, 0, 0.88) calc(100% - var(--fade) * 0.75),
+    rgba(0, 0, 0, 0.63) calc(100% - var(--fade) * 0.5), rgba(0, 0, 0, 0.37) calc(100% - var(--fade) * 0.25), rgba(0, 0, 0, 0.25);
+  --fades: linear-gradient(90deg, var(--ease-in), var(--ease-out)), linear-gradient(var(--ease-in), var(--ease-out));
+
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+  background: radial-gradient(circle, var(--dot) 0.75px, transparent 1.2px) var(--grid-x, center) var(--grid-y, center) / var(--grid) var(--grid);
+  -webkit-mask: var(--fades);
+  -webkit-mask-composite: source-in;
+  mask: var(--fades);
+  mask-composite: intersect;
+}
+
+body::before,
+.stage,
+.dock,
+.copyright {
+  transition: opacity 0.3s ease;
+}
+
+:root:not(.is-ready) body::before,
+:root:not(.is-ready) :is(.stage, .dock, .copyright) {
+  opacity: 0;
+  animation: reveal 0.3s ease 3s forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}

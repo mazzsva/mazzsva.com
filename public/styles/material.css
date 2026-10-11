@@ -1,0 +1,10 @@
+.material {
+  background: var(--surface);
+  box-shadow:
+    var(--elevation),
+    0 0 0 0.5px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.11),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.13),
+    inset 0 0 12px rgba(255, 255, 255, 0.04);
+}

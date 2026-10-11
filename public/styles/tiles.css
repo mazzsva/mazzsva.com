@@ -1,0 +1,61 @@
+@media (max-width: 600px) {
+  .results {
+    --opens: sheet;
+  }
+
+  .section {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  }
+
+  .section-title {
+    grid-column: 1 / -1;
+  }
+
+  .result {
+    flex-direction: column;
+    gap: 7px;
+    text-align: center;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+
+  .result-icon {
+    align-self: center;
+  }
+
+  .result-text {
+    flex: none;
+    width: calc(100% + 2 * var(--row-padding));
+  }
+
+  .result-title {
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 16px;
+    letter-spacing: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .result-detail,
+  .result-action {
+    display: none;
+  }
+
+  a.result.is-selected {
+    background: var(--fill-selected);
+  }
+}
+
+@media (max-width: 600px) and (hover: none) {
+  .result:active,
+  .result.is-selected,
+  a.result.is-selected {
+    background: none;
+  }
+
+  .result.is-selected .result-title {
+    color: inherit;
+  }
+}

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Lorenzo Mazzarotto, software engineer.">
+    <meta name="author" content="Lorenzo Mazzarotto">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#282828">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mazzsva.com/">
+    <meta property="og:title" content="Lorenzo Mazzarotto">
+    <meta property="og:description" content="Lorenzo Mazzarotto, software engineer.">
+    <meta property="og:image" content="https://mazzsva.com/assets/preview.png">
+    <meta property="og:image:width" content="2400">
+    <meta property="og:image:height" content="1260">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Lorenzo Mazzarotto</title>
+    <link rel="canonical" href="https://mazzsva.com/">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Lorenzo Mazzarotto","jobTitle":"Software Engineer","url":"https://mazzsva.com/","sameAs":["https://github.com/mazzsva","https://www.linkedin.com/in/mazzsva"]}</script>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/material.css">
+    <link rel="stylesheet" href="styles/panel.css">
+    <link rel="stylesheet" href="styles/bar.css">
+    <link rel="stylesheet" href="styles/filters.css">
+    <link rel="stylesheet" href="styles/results.css">
+    <link rel="stylesheet" href="styles/tiles.css">
+    <link rel="stylesheet" href="styles/sheet.css">
+    <link rel="stylesheet" href="styles/hints.css">
+    <link rel="stylesheet" href="styles/copyright.css">
+    <script type="module" src="scripts/main.js"></script>
+    <link rel="modulepreload" href="scripts/drag.js">
+    <link rel="modulepreload" href="scripts/grid.js">
+    <link rel="modulepreload" href="scripts/motion.js">
+    <link rel="modulepreload" href="scripts/store.js">
+    <link rel="modulepreload" href="scripts/view.js">
+    <noscript><link rel="stylesheet" href="styles/noscript.css"></noscript>
+  </head>
+  <body>
+    <div class="stage">
+      <main class="panel material">
+        <header class="bar">
+          <span class="bar-symbols" aria-hidden="true">
+            <img class="bar-symbol is-active" data-mode="all" src="assets/symbols/magnifyingglass.png" alt="">
+            <img class="bar-symbol" data-mode="products" src="assets/symbols/shippingbox.png" alt="">
+            <img class="bar-symbol" data-mode="projects" src="assets/symbols/folder.png" alt="">
+            <img class="bar-symbol" data-mode="profiles" src="assets/symbols/person.crop.circle.png" alt="">
+          </span>
+          <h1 class="bar-name">Lorenzo Mazzarotto<span class="bar-caret"></span></h1>
+          <span class="bar-role">Software Engineer</span>
+        </header>
+
+        <div class="separator"></div>
+
+        <nav class="filters" aria-label="Show">
+          <button class="filter" type="button" data-mode="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-mode="products" aria-pressed="false">Products</button>
+          <button class="filter" type="button" data-mode="projects" aria-pressed="false">Projects</button>
+          <button class="filter" type="button" data-mode="profiles" aria-pressed="false">Profiles</button>
+        </nav>
+
+        <ul class="results">
+          <li class="section" data-mode="products">
+            <h2 class="section-title">Products</h2>
+            <div class="result" tabindex="0" aria-label="Untitled. Taking shape on nights and weekends. Coming soon.">
+              <img class="result-icon" src="assets/icons/untitled.png" alt="" width="44" height="44">
+              <span class="result-text">
+                <span class="result-title">Untitled</span>
+                <span class="result-detail">Taking shape on nights and weekends.</span>
+              </span>
+              <span class="result-action">Coming Soon</span>
+            </div>
+          </li>
+
+          <li class="section" data-mode="projects">
+            <h2 class="section-title">Projects</h2>
+            <a class="result" href="https://github.com/mazzsva/Lexicon" target="_blank" rel="noopener">
+              <img class="result-icon" src="assets/icons/lexicon.png" alt="" width="44" height="44">
+              <span class="result-text">
+                <span class="result-title">Lexicon</span>
+                <span class="result-detail">Offline-first iOS app in SwiftUI and TCA.</span>
+              </span>
+              <span class="result-action">GitHub<span class="result-arrow"></span></span>
+            </a>
+            <a class="result" href="https://github.com/mazzsva/claude-skills" target="_blank" rel="noopener">
+              <img class="result-icon" src="assets/icons/claude-skills.png" alt="" width="44" height="44">
+              <span class="result-text">
+                <span class="result-title">claude-skills</span>
+                <span class="result-detail">Git-versioned skills for Claude Code.</span>
+              </span>
+              <span class="result-action">GitHub<span class="result-arrow"></span></span>
+            </a>
+          </li>
+
+          <li class="section" data-mode="profiles">
+            <h2 class="section-title">Profiles</h2>
+            <a class="result" href="https://github.com/mazzsva" target="_blank" rel="me noopener">
+              <img class="result-icon" src="assets/icons/github.png" alt="" width="44" height="44">
+              <span class="result-text">
+                <span class="result-title">GitHub</span>
+                <span class="result-detail">Open source and side projects.</span>
+              </span>
+              <span class="result-action">GitHub<span class="result-arrow"></span></span>
+            </a>
+            <a class="result" href="https://www.linkedin.com/in/mazzsva" target="_blank" rel="me noopener">
+              <img class="result-icon" src="assets/icons/linkedin.png" alt="" width="44" height="44">
+              <span class="result-text">
+                <span class="result-title">LinkedIn</span>
+                <span class="result-detail">Experience and career updates.</span>
+              </span>
+              <span class="result-action">LinkedIn<span class="result-arrow"></span></span>
+            </a>
+          </li>
+        </ul>
+      </main>
+    </div>
+
+    <dialog class="sheet" aria-labelledby="sheet-title">
+      <div class="sheet-body material" tabindex="-1" autofocus>
+        <header class="sheet-header">
+          <img class="sheet-icon" alt="" width="64" height="64">
+          <h2 class="sheet-title" id="sheet-title"></h2>
+        </header>
+        <p class="sheet-detail"></p>
+        <a class="sheet-open" target="_blank" rel="noopener"><span class="sheet-action"></span><span class="sheet-arrow"></span></a>
+        <p class="sheet-link"></p>
+      </div>
+    </dialog>
+
+    <div class="dock">
+      <div class="hints material">
+        <div class="hints-list" aria-hidden="true">
+          <span class="hint"><kbd><img src="assets/symbols/arrowtriangle.up.fill.png" alt=""></kbd><kbd><img src="assets/symbols/arrowtriangle.down.fill.png" alt=""></kbd> Navigate</span>
+          <span class="hint"><kbd><img src="assets/symbols/arrowtriangle.left.fill.png" alt=""></kbd><kbd><img src="assets/symbols/arrowtriangle.right.fill.png" alt=""></kbd> Switch</span>
+          <span class="hint hint-open is-disabled"><kbd><img src="assets/symbols/return.png" alt=""></kbd> Open</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="copyright">
+      <small>© 2026 Lorenzo Mazzarotto</small>
+    </footer>
+  </body>
+</html>

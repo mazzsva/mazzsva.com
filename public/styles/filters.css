@@ -1,0 +1,36 @@
+.filters {
+  display: flex;
+  gap: 8px;
+  padding: 10px var(--content-inset) 0;
+}
+
+.filter {
+  padding: 4px 11px;
+  border: 0;
+  border-radius: var(--control-radius);
+  background: var(--fill);
+  color: var(--label);
+  font: 400 15px/18px var(--font);
+  cursor: pointer;
+}
+
+.filter[aria-pressed="true"] {
+  background: var(--fill-selected);
+}
+
+.filter:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+@media (max-width: 600px) {
+  .filters {
+    gap: 6px;
+  }
+
+  .filter {
+    flex: 1;
+    padding: 6px 4px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,73 @@
+.dock {
+  grid-row: 3;
+  justify-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  container-type: size;
+}
+
+.hints {
+  --elevation: 0 8px 28px rgba(0, 0, 0, 0.5);
+  --inset: 9px;
+
+  display: grid;
+  padding: var(--inset) 18px var(--inset) var(--inset);
+  border-radius: calc(var(--control-radius) + var(--inset));
+  color: var(--secondary-label);
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.hint.is-disabled {
+  opacity: 0.35;
+}
+
+.hint kbd {
+  display: grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: var(--control-radius);
+  background: var(--fill-selected);
+}
+
+.hint kbd img {
+  width: 10px;
+  height: 10px;
+}
+
+.hint-open kbd img {
+  width: 13px;
+  height: 13px;
+}
+
+.hint kbd + kbd {
+  margin-left: -4px;
+}
+
+.hints-list {
+  display: flex;
+  gap: 20px;
+}
+
+@container (width < 390px) or (height < 68px) {
+  .hints {
+    display: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .dock {
+    display: none;
+  }
+}

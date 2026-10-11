@@ -1,0 +1,123 @@
+.results {
+  --section-gap: 16px;
+
+  padding: 0 var(--list-inset) var(--list-inset);
+  list-style: none;
+}
+
+.section-title {
+  margin: calc(var(--section-gap) + var(--spacer, 0px)) var(--row-padding) 4px;
+  padding-bottom: 8px;
+  border-bottom: 0.5px solid var(--separator);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: var(--row-padding);
+  border-radius: var(--result-radius);
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a.result {
+  cursor: pointer;
+}
+
+.result:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.result-icon {
+  flex: none;
+  align-self: flex-start;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.2));
+}
+
+.result-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.result-title {
+  display: block;
+  font-size: 17px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.result-detail {
+  display: block;
+  margin-top: 1px;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--secondary-label);
+  text-wrap: pretty;
+}
+
+.result-action {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--secondary-label);
+  font-size: 14px;
+  visibility: hidden;
+}
+
+.result-arrow {
+  width: 11px;
+  height: 11px;
+  background: currentColor;
+  mask: url("../assets/symbols/arrow.up.right.png") center / contain no-repeat;
+}
+
+.result.is-selected {
+  background: var(--fill-selected);
+}
+
+a.result.is-selected {
+  background: var(--accent);
+}
+
+.result.is-selected .result-title {
+  color: var(--on-accent);
+}
+
+.result.is-selected .result-detail {
+  color: var(--on-accent-secondary);
+}
+
+.result.is-selected .result-action {
+  visibility: visible;
+}
+
+a.result.is-selected .result-action {
+  color: var(--on-accent);
+}
+
+@media (hover: none), (pointer: coarse) {
+  .result:active {
+    background: var(--fill-pressed);
+  }
+
+  .result-action {
+    padding: 7px 12px;
+    border-radius: var(--control-radius);
+    background: var(--fill);
+    font-weight: 600;
+    visibility: visible;
+  }
+
+  a.result .result-action {
+    color: var(--accent);
+  }
+}
