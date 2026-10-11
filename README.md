@@ -18,10 +18,10 @@ No build step and no dependencies.
 
 <img src=".github/screenshots/motion.webp" alt="The filters change and the panel resizes, then the arrow keys move the selection and switch the filter">
 
-- **Loading:** The page waits until its layout is final and its images are ready, then fades in once. Nothing moves after it appears.
-- **Motion:** Every animation keeps 60 frames per second on a CPU slowed down four times, and the page respects Reduce Motion.
+- **Loading:** The page fades in once, when it is complete, and nothing moves after.
+- **Motion:** 60 frames per second on a CPU four times slower, and Reduce Motion support.
 - **Layouts:** A list on Mac and iPad, and a grid of icons with a sheet on iPhone.
-- **Keyboard:** The arrow keys move through the results and the filters, and Return opens the selected link.
+- **Keyboard:** The arrow keys move through the results, and Return opens a link.
 - **Security:** A strict Content Security Policy, HSTS, and no cookies or third-party scripts.
 - **Tests:** 12 tests cover the state of the page.
 
