@@ -37,10 +37,9 @@ export function render(view, state) {
   view.symbols.forEach((symbol) => symbol.classList.toggle("is-active", symbol.dataset.mode === state.mode));
   view.filters.forEach((filter) => filter.setAttribute("aria-pressed", filter.dataset.mode === state.mode));
   const pressed = view.filters.find((filter) => filter.dataset.mode === state.mode);
-  if (view.filters.includes(document.activeElement)) pressed.focus({ preventScroll: true });
   const selected = visibleResults(view, state.mode)[state.selection];
   view.results.forEach((result) => result.classList.toggle("is-selected", result === selected));
-  if (selected && view.results.includes(document.activeElement)) selected.focus({ preventScroll: true });
+  if ([...view.filters, ...view.results].includes(document.activeElement)) (selected ?? pressed).focus({ preventScroll: true });
   view.actions.forEach((action) => action.classList.toggle("is-disabled", !selected?.href));
   if (state.presented) presentSheet(view.sheet, selected);
   else dismissSheet(view.sheet);

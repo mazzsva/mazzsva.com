@@ -104,6 +104,11 @@ addEventListener("keydown", (event) => {
     return;
   }
 
+  if (event.key === "Enter" && event.repeat) {
+    event.preventDefault();
+    return;
+  }
+
   const href = selected()?.href;
   if (event.key === "Enter" && href && !event.target.closest("a, button")) {
     event.preventDefault();
