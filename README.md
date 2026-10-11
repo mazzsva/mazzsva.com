@@ -2,7 +2,7 @@
 
 My personal website, in the style of macOS Spotlight.
 
-<img src=".github/screenshots/iphone.png" alt="The website on iPhone, with the products, projects, and profiles as a grid of icons" width="17%"> <img src=".github/screenshots/ipad.png" alt="The website on iPad, with the list of products, projects, and profiles, and a button on each row" width="26%"> <img src=".github/screenshots/mac.png" alt="The website on Mac, with the Lexicon row selected and the keyboard hints below the panel" width="54%">
+<img src=".github/screenshots/devices.png" alt="The website on iPhone, Mac, and iPad: a grid of icons on iPhone, and a list of products, projects, and profiles on Mac and iPad">
 
 ## Technologies
 
@@ -15,6 +15,8 @@ My personal website, in the style of macOS Spotlight.
 No build step and no dependencies.
 
 ## Quality
+
+<img src=".github/screenshots/motion.webp" alt="The filters change and the panel resizes, then the arrow keys move the selection and switch the filter">
 
 - **Loading:** The page waits until its layout is final and its images are ready, then fades in once. Nothing moves after it appears.
 - **Motion:** Every animation keeps 60 frames per second on a CPU slowed down four times, and the page respects Reduce Motion.
