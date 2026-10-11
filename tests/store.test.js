@@ -21,6 +21,11 @@ describe("switch", () => {
   test("wraps from the first mode to the last mode", () => {
     assert.deepEqual(send(initialState, { type: "switch", step: -1 }), { mode: "profiles", selection: 0, presented: false });
   });
+
+  test("wraps from the last mode to the first mode", () => {
+    const state = { ...initialState, mode: "profiles", selection: 1 };
+    assert.deepEqual(send(state, { type: "switch", step: 1 }), { mode: "all", selection: 0, presented: false });
+  });
 });
 
 describe("select", () => {
@@ -46,6 +51,11 @@ describe("move", () => {
   test("wraps from the last result to the first result", () => {
     const state = { ...initialState, mode: "projects", selection: 1 };
     assert.equal(send(state, { type: "move", step: 1 }).selection, 0);
+  });
+
+  test("wraps from the first result to the last result", () => {
+    const state = { ...initialState, selection: 0 };
+    assert.equal(send(state, { type: "move", step: -1 }).selection, 4);
   });
 });
 
