@@ -16,8 +16,6 @@ No build step and no dependencies.
 
 ## Quality
 
-<img src=".github/screenshots/motion.webp" alt="The filters change and the panel resizes, then the arrow keys move the selection and switch the filter">
-
 - **Loading:** The page fades in once, when it is complete, and nothing moves after.
 - **Motion:** 60 frames per second on a CPU four times slower, and Reduce Motion support.
 - **Layouts:** A list on Mac and iPad, and a grid of icons with a sheet on iPhone.
@@ -27,7 +25,7 @@ No build step and no dependencies.
 
 ## Commands
 
-```bash
+```
 npm start
 npm test
 npx wrangler deploy
