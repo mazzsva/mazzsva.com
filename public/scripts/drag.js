@@ -1,5 +1,7 @@
 const threshold = 6;
+const resistance = 8;
 const flickWindow = 100;
+const flickVelocity = 0.8;
 
 export function dragToDismiss(element, dismiss) {
   let drag = null;
@@ -21,7 +23,7 @@ export function dragToDismiss(element, dismiss) {
     drag.velocity = (event.clientY - drag.y) / Math.max(1, event.timeStamp - drag.time);
     drag.y = event.clientY;
     drag.time = event.timeStamp;
-    element.style.transform = `translateY(${offset > 0 ? offset : offset / 8}px)`;
+    element.style.transform = `translateY(${offset > 0 ? offset : offset / resistance}px)`;
   });
 
   const release = (event) => {
@@ -30,7 +32,7 @@ export function dragToDismiss(element, dismiss) {
     drag = null;
     if (!moving) return;
     element.removeAttribute("style");
-    const flicked = event.timeStamp - time < flickWindow && velocity > 0.8;
+    const flicked = event.timeStamp - time < flickWindow && velocity > flickVelocity;
     if (event.clientY - start > element.offsetHeight / 3 || flicked) dismiss();
   };
 
