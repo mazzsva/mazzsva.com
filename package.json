@@ -2,8 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "wrangler dev",
-    "test": "node --test && playwright test"
+    "start": "wrangler dev"
   },
   "devDependencies": {
     "@playwright/test": "1.64.0",

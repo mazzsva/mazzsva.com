@@ -7,7 +7,5 @@
 .env*
 !.env.example
 
-# test files
+# npm files
 node_modules
-test-results
-playwright-report
