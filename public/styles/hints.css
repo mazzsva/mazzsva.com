@@ -12,7 +12,8 @@
   --elevation: 0 8px 28px rgba(0, 0, 0, 0.5);
   --inset: 9px;
 
-  display: grid;
+  display: flex;
+  gap: 20px;
   padding: var(--inset) 18px var(--inset) var(--inset);
   border-radius: calc(var(--control-radius) + var(--inset));
   color: var(--secondary-label);
@@ -53,11 +54,6 @@
 
 .hint kbd + kbd {
   margin-left: -4px;
-}
-
-.hints-list {
-  display: flex;
-  gap: 20px;
 }
 
 @container (width < 390px) or (height < 68px) {
