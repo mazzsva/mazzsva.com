@@ -36,8 +36,6 @@ const keys = {
   ArrowLeft: { type: "switch", step: -1 },
 };
 
-const opensSheet = () => getComputedStyle(view.list).getPropertyValue("--opens").trim() === "sheet";
-
 let state = initialState;
 let pointer = null;
 
@@ -54,14 +52,22 @@ const dismiss = () => send({ type: "dismiss" });
 
 const selected = () => visibleResults(view, state.mode)[state.selection];
 
+const indexOf = (result) => visibleResults(view, state.mode).indexOf(result);
+
+const opensSheet = () => getComputedStyle(view.list).getPropertyValue("--opens").trim() === "sheet";
+
+function selectUnderPointer() {
+  if (pointer?.pointerType !== "mouse") return;
+  const result = document.elementFromPoint(pointer.clientX, pointer.clientY)?.closest(".result");
+  if (result) send({ type: "select", index: indexOf(result) });
+}
+
 view.filters.forEach((filter) =>
   filter.addEventListener("click", (event) => {
     if (event.detail) filter.blur();
     send({ type: "show", mode: filter.dataset.mode });
   }),
 );
-
-const indexOf = (result) => visibleResults(view, state.mode).indexOf(result);
 
 view.results.forEach((result) => {
   result.addEventListener("focus", () => result.matches(":focus-visible") && send({ type: "select", index: indexOf(result) }));
@@ -79,12 +85,6 @@ addEventListener("pointermove", (event) => {
   const result = event.target.closest(".result");
   if (event.pointerType === "mouse" && moved && result) send({ type: "select", index: indexOf(result) });
 });
-
-function selectUnderPointer() {
-  if (pointer?.pointerType !== "mouse") return;
-  const result = document.elementFromPoint(pointer.clientX, pointer.clientY)?.closest(".result");
-  if (result) send({ type: "select", index: indexOf(result) });
-}
 
 dialog.addEventListener("close", selectUnderPointer);
 dialog.addEventListener("click", (event) => event.target === dialog && dismiss());
@@ -104,17 +104,18 @@ addEventListener("keydown", (event) => {
     return;
   }
 
-  if (event.key === "Enter" && event.repeat) {
+  if (event.key !== "Enter") return;
+
+  if (event.repeat) {
     event.preventDefault();
     return;
   }
 
   const href = selected()?.href;
-  if (event.key === "Enter" && href && !event.target.closest("a, button")) {
-    event.preventDefault();
-    window.open(href, "_blank", "noopener");
-    dismiss();
-  }
+  if (!href || event.target.closest("a, button")) return;
+  event.preventDefault();
+  window.open(href, "_blank", "noopener");
+  dismiss();
 });
 
 addEventListener("resize", () => {
