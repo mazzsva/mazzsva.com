@@ -1,4 +1,5 @@
 {
+  "name": "mazzsva.com",
   "private": true,
   "scripts": {
     "start": "wrangler dev"
