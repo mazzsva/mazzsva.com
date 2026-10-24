@@ -1,17 +1,10 @@
 # mazzsva.com
 
-Spotlight-style personal website in HTML, CSS, and JavaScript.
+Spotlight-style [personal website](https://mazzsva.com) in HTML, CSS, and JavaScript.
 
 <img src=".github/screenshots/devices.png" alt="The website on iPhone, Mac, and iPad: a grid of icons on iPhone, and a list of products, projects, and profiles on Mac and iPad">
 
-## Technologies
-
-<table>
-  <tr><td><b>Languages</b></td><td>HTML, CSS, JavaScript</td></tr>
-  <tr><td><b>Hosting</b></td><td>Cloudflare Workers</td></tr>
-</table>
-
-No build step and no runtime dependencies.
+Hosted on Cloudflare Workers, with no build step and no runtime dependencies.
 
 ## Quality
 
@@ -21,12 +14,13 @@ No build step and no runtime dependencies.
 - **Keyboard:** The arrow keys move through the results, and Return opens a link.
 - **Security:** A strict Content Security Policy, HSTS, and no cookies or third-party scripts.
 
-## Commands
+## Run locally
 
 ```
 npm install
 npm start
-npx wrangler deploy
 ```
+
+Deploy with `npx wrangler deploy`.
 
 Copyright © 2026 Lorenzo Mazzarotto
