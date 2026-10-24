@@ -1,6 +1,6 @@
 # mazzsva.com
 
-My personal website, in the style of macOS Spotlight.
+Spotlight-style personal website in HTML, CSS, and JavaScript
 
 <img src=".github/screenshots/devices.png" alt="The website on iPhone, Mac, and iPad: a grid of icons on iPhone, and a list of products, projects, and profiles on Mac and iPad">
 
