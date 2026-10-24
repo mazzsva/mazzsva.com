@@ -6,7 +6,7 @@ Spotlight-style [personal website](https://mazzsva.com) in HTML, CSS, and JavaSc
 
 Hosted on Cloudflare Workers, with no build step and no runtime dependencies.
 
-## Quality
+## Quality gates
 
 - **Loading:** The page fades in once, when it is complete, and nothing moves after.
 - **Motion:** 60 frames per second on a CPU four times slower, and Reduce Motion support.
