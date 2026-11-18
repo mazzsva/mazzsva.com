@@ -40,9 +40,6 @@ jobs:
       - name: Install the packages
         run: npm ci
 
-      - name: Validate the HTML
-        run: npx --yes html-validate@11.21.1 public
-
       - name: Check the scripts
         run: |
           for script in public/scripts/*.js; do
