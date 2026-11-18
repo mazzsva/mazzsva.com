@@ -13,6 +13,7 @@ Hosted on Cloudflare Workers, with no build step and no runtime dependencies.
 - **Layouts:** A list on Mac and iPad, and a grid of icons with a sheet on iPhone.
 - **Keyboard:** The arrow keys move through the results, and Return opens a link.
 - **Security:** A strict Content Security Policy, HSTS, and no cookies or third-party scripts.
+- **CI:** GitHub Actions validates the HTML, the scripts, the links, and the Worker configuration on each ready pull request, each merge to main, and every Monday.
 
 ## Run locally
 
