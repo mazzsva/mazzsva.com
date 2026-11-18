@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Build and Test
+    if: github.event.pull_request.draft != true
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Validate the HTML
+        run: npx --yes html-validate@11.21.1 public
+
+      - name: Check the scripts
+        run: |
+          for script in public/scripts/*.js; do
+            node --check "$script"
+          done
+
+      - name: Check the links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --offline --no-progress public
+
+      - name: Check the Worker configuration
+        run: npx wrangler deploy --dry-run
