@@ -23,5 +23,3 @@ npm start
 ```
 
 Deploy with `npx wrangler deploy`.
-
-Copyright © 2026 Lorenzo Mazzarotto
